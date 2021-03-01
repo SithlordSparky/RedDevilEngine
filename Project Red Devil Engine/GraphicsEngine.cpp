@@ -42,19 +42,38 @@ bool GraphicsEngine::init()
 		return false;
 	}
 
+	m_d3d_device->QueryInterface(__uuidof(IDXGIDevice),(void**) &m_dxdgi_device);
+	m_dxdgi_device->GetParent(__uuidof(IDXGIAdapter),(void**) &m_dxdgi_adapter);
+	m_dxdgi_adapter->GetParent(__uuidof(IDXGIFactory),(void**) &m_dxdgi_factory);
+	
 
 	return true;
 }
 
+
+
+
+
 bool GraphicsEngine::release()
 {
+	m_dxdgi_device->Release();
+	m_dxdgi_adapter->Release();
+	m_dxdgi_factory->Release();
+
 	m_imm_context->Release();
+
 	m_d3d_device->Release();
+
 	return true;
 }
 
 GraphicsEngine::~GraphicsEngine()
 {
+}
+
+SwapChain* GraphicsEngine::createSwapChain()
+{
+	return new SwapChain();
 }
 
 GraphicsEngine* GraphicsEngine::get()

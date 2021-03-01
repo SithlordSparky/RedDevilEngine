@@ -26,6 +26,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 		Window* window = (Window*)((LPCREATESTRUCT)lparam)->lpCreateParams;
 		// .. and then stored for later lookup
 		SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)window);
+		window->setHWMD(hwnd);
 		window->onCreate();
 		break;
 	}
@@ -74,8 +75,8 @@ bool Window::init()
 		window = this;*/
 
 		//Creation of the window
-	m_hwnd = ::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"RedDevEngineWindowClass", L"Red Devil Engine", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768,
-		NULL, NULL, NULL, this);
+	m_hwnd = ::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"RedDevEngineWindowClass", L"Red Devil Engine", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 
+		CW_USEDEFAULT, 1024, 768, NULL, NULL, NULL, this);
 
 	//if the creation fail return false
 	if (!m_hwnd)
@@ -127,6 +128,18 @@ bool Window::release()
 bool Window::isRun()
 {
 	return m_is_run;
+}
+
+RECT Window::getClientWindowRect()
+{
+	RECT rc;
+	::GetClientRect(this->m_hwnd, &rc);
+	return rc;
+}
+
+void Window::setHWMD(HWND hwnd)
+{
+	this->m_hwnd = hwnd;
 }
 
 void Window::onCreate()
