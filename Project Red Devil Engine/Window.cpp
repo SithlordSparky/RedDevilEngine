@@ -100,7 +100,8 @@ bool Window::init()
 bool Window::broadcast()
 {
 	MSG msg;
-
+	
+	this->onUpdate();
 
 	while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0)
 	{
@@ -108,7 +109,7 @@ bool Window::broadcast()
 		DispatchMessage(&msg);
 	}
 
-	this->onUpdate();
+	
 
 	Sleep(1);
 

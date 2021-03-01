@@ -8,6 +8,7 @@
 #pragma once
 #include "Window.h"
 #include "SwapChain.h"
+#include "DeviceContext.h"
 #include "GraphicsEngine.h"
 
 class AppWindow: public Window
