@@ -1,2 +1,5 @@
-﻿  Window.cpp
+﻿  AppWindow.cpp
+  GraphicsEngine.cpp
+  Main.cpp
+  Generating Code...
   Project Red Devil Engine.vcxproj -> C:\dev\RedDevilEngine\x64\Debug\Project Red Devil Engine.exe
