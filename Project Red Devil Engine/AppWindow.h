@@ -10,6 +10,7 @@
 #include "SwapChain.h"
 #include "DeviceContext.h"
 #include "GraphicsEngine.h"
+#include "VertexBuffer.h"
 
 class AppWindow: public Window
 {
@@ -24,5 +25,6 @@ public:
 
 private:
 	SwapChain* m_swap_chain;
+	VertexBuffer* m_vb;
 };
 

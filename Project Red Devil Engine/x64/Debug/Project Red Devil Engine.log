@@ -1,2 +1,11 @@
-﻿  Window.cpp
+﻿  AppWindow.cpp
+  DeviceContext.cpp
+C:\dev\RedDevilEngine\Project Red Devil Engine\DeviceContext.cpp(46,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+C:\dev\RedDevilEngine\Project Red Devil Engine\DeviceContext.cpp(47,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+  GraphicsEngine.cpp
+  Main.cpp
+  SwapChain.cpp
+  VertexBuffer.cpp
+  Window.cpp
+  Generating Code...
   Project Red Devil Engine.vcxproj -> C:\dev\RedDevilEngine\x64\Debug\Project Red Devil Engine.exe
