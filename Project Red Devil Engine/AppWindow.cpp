@@ -36,8 +36,12 @@ void AppWindow::onCreate()
 	{
 		//x Y Z
 		{ -0.5f,-0.5f,0.0f }, // POS 1
-		{ 0.0f,0.5f,0.0f }, // POS 2
-		{ 0.5f,-0.5f,0.0f } // POS 3
+		{ -0.5f,0.5f,0.0f }, // POS 2
+		{ 0.5f,0.5f,0.0f }, // POS 3
+		// Using 2 triangles to make a square
+		{ 0.5f,0.5f,0.0f }, // POS 1
+		{ 0.5f,-0.5f,0.0f }, // POS 2
+		{ -0.5f,-0.5f,0.0f } // POS 3
 	};
 	m_vb=GraphicsEngine::get()->createVertexBuffer();
 	UINT size_list = ARRAYSIZE(list);
