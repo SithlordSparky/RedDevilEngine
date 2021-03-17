@@ -2,7 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by Project Red Devil Engine.rc
 //
-#define IDI_ICON1                       102
+
 
 // Next default values for new objects
 // 

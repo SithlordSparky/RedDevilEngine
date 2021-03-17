@@ -96,8 +96,4 @@
   <ItemGroup>
     <ResourceCompile Include="Project Red Devil Engine.rc" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\Users\justi\OneDrive\Pictures\reddevil.png" />
-    <Image Include="..\..\..\Users\justi\OneDrive\Pictures\reddevil.ico" />
-  </ItemGroup>
 </Project>

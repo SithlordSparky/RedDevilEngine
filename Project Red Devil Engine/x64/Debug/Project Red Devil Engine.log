@@ -1,13 +1,1 @@
-﻿  AppWindow.cpp
-C:\dev\RedDevilEngine\Project Red Devil Engine\AppWindow.cpp(55,75): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
-  DeviceContext.cpp
-C:\dev\RedDevilEngine\Project Red Devil Engine\DeviceContext.cpp(53,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-C:\dev\RedDevilEngine\Project Red Devil Engine\DeviceContext.cpp(54,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-  GraphicsEngine.cpp
-  Main.cpp
-  SwapChain.cpp
-  VertexBuffer.cpp
-  VertexShader.cpp
-  Window.cpp
-  Generating Code...
-  Project Red Devil Engine.vcxproj -> C:\dev\RedDevilEngine\x64\Debug\Project Red Devil Engine.exe
+﻿

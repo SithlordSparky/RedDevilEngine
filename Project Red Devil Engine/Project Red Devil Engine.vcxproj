@@ -183,10 +183,6 @@
   <ItemGroup>
     <ResourceCompile Include="Project Red Devil Engine.rc" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\Users\justi\OneDrive\Pictures\reddevil.ico" />
-    <Image Include="..\..\..\Users\justi\OneDrive\Pictures\reddevil.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -28,5 +28,4 @@ void PixelShader::release()
 {
 	m_ps->Release();
 	delete this;
-	return true;
 }
