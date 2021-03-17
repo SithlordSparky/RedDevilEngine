@@ -10,6 +10,8 @@
 
 VertexBuffer::VertexBuffer():m_layout(0),m_buffer(0)
 {
+	m_size_list = 0;
+	m_size_vertex = 0;
 }
 
 bool VertexBuffer::load(void* list_vertices,UINT size_vertex,UINT size_list,void*shader_byte_code,UINT size_byte_shader)

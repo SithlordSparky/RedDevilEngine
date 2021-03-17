@@ -10,7 +10,8 @@
 
 Window::Window()
 {
-	
+	m_hwnd = 0;
+	m_is_run = 0;
 }
 
 

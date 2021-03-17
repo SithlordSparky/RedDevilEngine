@@ -10,6 +10,7 @@
 
 ConstantBuffer::ConstantBuffer()
 {
+	m_buffer = 0;
 }
 
 bool ConstantBuffer::load(void * buffer, UINT size_buffer)

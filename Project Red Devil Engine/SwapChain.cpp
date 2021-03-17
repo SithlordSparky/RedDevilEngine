@@ -9,6 +9,9 @@
 
 SwapChain::SwapChain()
 {
+	m_dsv = 0;
+	m_rtv = 0;
+	m_swap_chain = 0;
 }
 
 bool SwapChain::init(HWND hwnd, UINT width, UINT height)

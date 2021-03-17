@@ -10,6 +10,7 @@
 
 PixelShader::PixelShader()
 {
+	m_ps = 0;
 }
 
 void PixelShader::release()

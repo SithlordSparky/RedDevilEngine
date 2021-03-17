@@ -16,6 +16,13 @@
 
 GraphicsEngine::GraphicsEngine()
 {
+	m_d3d_device = 0;
+	m_dxgi_adapter = 0;
+	m_dxgi_device = 0;
+	m_dxgi_factory = 0;
+	m_imm_context = 0;
+	m_imm_device_context = 0;
+	//m_feature_level;
 }
 
 bool GraphicsEngine::init()
