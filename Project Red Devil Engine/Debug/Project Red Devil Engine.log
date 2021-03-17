@@ -1,6 +1,0 @@
-﻿  AppWindow.cpp
-  Main.cpp
-  Window.cpp
-C:\dev\RedDevilEngine\Project Red Devil Engine\Window.cpp(57,33): warning C4390: ';': empty controlled statement found; is this the intent?
-  Generating Code...
-  Project Red Devil Engine.vcxproj -> C:\dev\RedDevilEngine\Debug\Project Red Devil Engine.exe

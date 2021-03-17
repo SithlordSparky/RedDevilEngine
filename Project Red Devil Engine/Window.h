@@ -3,7 +3,6 @@
 /// Property of Astro Dynamics 2021
 /// jkringstad@astro-dynamics.net
 ///
-
 #pragma once
 #include <Windows.h>
 
@@ -21,7 +20,8 @@ public:
 	bool isRun();
 
 	RECT getClientWindowRect();
-	void setHWMD(HWND hwnd);
+	void setHWND(HWND hwnd);
+
 
 	//EVENTS
 	virtual void onCreate();
@@ -34,3 +34,4 @@ protected:
 	HWND m_hwnd;
 	bool m_is_run;
 };
+
