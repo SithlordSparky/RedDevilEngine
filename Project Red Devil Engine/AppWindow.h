@@ -12,6 +12,7 @@
 #include "GraphicsEngine.h"
 #include "VertexBuffer.h"
 #include "VertexShader.h"
+#include "PixelShader.h"
 
 class AppWindow: public Window
 {
@@ -28,5 +29,6 @@ private:
 	SwapChain* m_swap_chain;
 	VertexBuffer* m_vb;
 	VertexShader* m_vs;
+	PixelShader* m_ps;
 };
 

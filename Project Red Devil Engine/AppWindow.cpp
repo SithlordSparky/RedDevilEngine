@@ -14,12 +14,12 @@ struct vec3
 struct vertex
 {
 	vec3 position;
+	vec3 color;
 };
 
 AppWindow::AppWindow()
 {
 }
-
 AppWindow::~AppWindow()
 {
 }
@@ -35,38 +35,47 @@ void AppWindow::onCreate()
 	vertex list[] =
 	{
 		//x Y Z
-		{ -0.5f,-0.5f,0.0f }, // POS 1
-		{ -0.5f,0.5f,0.0f }, // POS 2
-		{ 0.5f,0.5f,0.0f }, // POS 3
-		// Using 2 triangles to make a square
-		{ 0.5f,0.5f,0.0f }, // POS 1
-		{ 0.5f,-0.5f,0.0f }, // POS 2
-		{ -0.5f,-0.5f,0.0f } // POS 3
+		{-0.5f,-0.5f,0.0f, 1,0,0 }, // POS 1
+		{-0.5f,0.5f,0.0f,  0,1,0 }, // POS 2
+		{ 0.5f,-0.5f,0.0f, 0,0,1 }, // POS 3
+		{ 0.5f,0.5f,0.0f,  1,1,0 }
 	};
+
 	m_vb=GraphicsEngine::get()->createVertexBuffer();
 	UINT size_list = ARRAYSIZE(list);
-
-	GraphicsEngine::get()->createShaders();
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
-	GraphicsEngine::get()->compileVertexShader(L"VertexShader.hlsl","vsmain", &shader_byte_code, &size_shader);
 
+	/// <summary>
+	/// Vertex Shader
+	/// </summary>
+	GraphicsEngine::get()->compileVertexShader(L"VertexShader.hlsl","vsmain", &shader_byte_code, &size_shader);
 	m_vs=GraphicsEngine::get()->createVertexShader(shader_byte_code, size_shader);
 	m_vb->load(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
+	GraphicsEngine::get()->releaseCompiledShader();
 
+	/// <summary>
+	/// Pixel Shader
+	/// </summary>
+	GraphicsEngine::get()->compilePixelShader(L"PixelShader.hlsl", "psmain", &shader_byte_code, &size_shader);
+	m_ps = GraphicsEngine::get()->createPixelShader(shader_byte_code, size_shader);
 	GraphicsEngine::get()->releaseCompiledShader();
 }
 
 void AppWindow::onUpdate()
 {
 	Window::onUpdate();
-	GraphicsEngine::get()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain,
-		1, 0, 0, 1);
+	// Clear the Render Target
+	GraphicsEngine::get()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain,1, 0, 0, 1);
+	// Set Viewport of render target in which we have to draw
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
-	GraphicsEngine::get()->setShaders();
+	// Set default shader in the graphics pipeline to be able to draw
 	GraphicsEngine::get()->getImmediateDeviceContext()->setVertexShader(m_vs);
+	GraphicsEngine::get()->getImmediateDeviceContext()->setPixelShader(m_ps);
+	// Set the vertices of the triangle to draw
 	GraphicsEngine::get()->getImmediateDeviceContext()->setVertexBuffer(m_vb);
+	// draw the triangle
 	GraphicsEngine::get()->getImmediateDeviceContext()->drawTriangleList(m_vb->getSizeVertexList(), 0);
 	m_swap_chain->present(false);
 }
@@ -75,6 +84,8 @@ void AppWindow::onDestroy()
 {
 	Window::onDestroy();
 	m_vb->release();
+	m_vs->release();
+	m_ps->release();
 	m_swap_chain->release();
 	GraphicsEngine::get()->release();
 }

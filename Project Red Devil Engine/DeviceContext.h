@@ -25,7 +25,8 @@ public:
 	void drawTriangleStrip(UINT vertex_count, UINT start_vertex_index);
 	void setViewPortSize(UINT width, UINT height);
 	void setVertexShader(VertexShader* vertex_shader);
-	void setPixelShader(PixelShader* pixerl_shader);
+	// Learn to spell Pixel properly
+	void setPixelShader(PixelShader* pixel_shader);
 	~DeviceContext();
 
 private:

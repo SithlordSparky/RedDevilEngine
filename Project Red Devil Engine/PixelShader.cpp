@@ -10,7 +10,6 @@
 PixelShader::PixelShader()
 {
 }
-
 PixelShader::~PixelShader()
 {
 }
